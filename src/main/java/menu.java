@@ -43,13 +43,13 @@ public class menu {
         commentService.setIdUser(id);
         commentService.setUserName(user);
         while (isrun){
-            System.out.println("for tweet insert 1 " +
-                    "for add comment insert 2 and select comment " +
-                    "for see all tweet insert 3 " +
-                    "for search user insert 4 " +
-                    "for see your tweet insert 6" +
-                    "for see menu of account insert 5 " +
-                    " for exit insert 7");
+            System.out.println("for tweet insert 1 \n" +
+                    "for add comment insert 2 and select comment \n" +
+                    "for see all tweet insert 3 \n" +
+                    "for search user insert  \n" +
+                    "for see your tweet insert 6\n" +
+                    "for see menu of account insert 5 \n" +
+                    " for exit insert 7\n");
             int select = scanner.nextInt();
             switch (select){
                 case 1:
@@ -66,6 +66,7 @@ public class menu {
                     tweetService.ShowTweetAndCommnet();
                     break;
                 case 5:
+                    accountService.findUser();
                 case 6:
                     tweetService.show();
                     break;
