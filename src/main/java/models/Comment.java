@@ -17,4 +17,11 @@ public class Comment extends Tweet {
     public void setIdComment(int idComment) {
         this.idComment = idComment;
     }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "idComment=" + idComment +
+                "} " + super.toString();
+    }
 }

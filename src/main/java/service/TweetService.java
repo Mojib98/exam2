@@ -1,6 +1,7 @@
 package service;
 
 import models.Tweet;
+import models.TweetandCommnet;
 import repository.TweetRepository;
 
 import java.sql.Date;
@@ -34,7 +35,7 @@ public class TweetService implements Service<Tweet> {
         int idT = random.ints(4, 10000, 99999).findFirst().getAsInt();
         // LocalDate localDate = new LocaleData();
         System.out.println("insert tweet");
-        String tweets = scanner.next();
+        String tweets = scanner.next().trim();
         long timeMilli = date.getTime();
        Date date = new Date(timeMilli);
         tweet = new Tweet(id,id,username,date,tweets,idT);
@@ -85,5 +86,18 @@ public class TweetService implements Service<Tweet> {
             System.out.println(t);
         }
 
+    }
+    public void ShowTweetAndCommnet(){
+        List<TweetandCommnet> list=null;
+        try {
+            list=tweetRepository.showTweetAndComment();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        for (TweetandCommnet t:list
+             ) {
+            System.out.println(t);
+
+        }
     }
 }

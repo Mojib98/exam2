@@ -70,6 +70,7 @@ public class AccountRepository implements Repository<Account> {
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1,username);
         resultSet = preparedStatement.executeQuery();
+        resultSet.next();
         return resultSet.getInt(1);
     }
 }

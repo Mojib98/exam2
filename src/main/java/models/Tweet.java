@@ -27,4 +27,12 @@ public class Tweet extends BaseModel{
     public void setIdTwitte(int idTwitte) {
         this.idTwitte = idTwitte;
     }
+
+    @Override
+    public String toString() {
+        return "Tweet{" +
+                "twitte='" + twitte + '\'' +
+                ", idTwitte=" + idTwitte +
+                "} " + super.toString();
+    }
 }

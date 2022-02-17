@@ -21,8 +21,8 @@ public class AccountService implements Service<Account> {
     java.util.Date date = new java.util.Date();
     String userName;
 
-    public String getUserName() {
-        return userName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public AccountService() throws SQLException, ClassNotFoundException {
@@ -91,11 +91,27 @@ public class AccountService implements Service<Account> {
     }
     public int getId(){
         try {
-            id = accountRepository.returnId(userName);
+         return    id = accountRepository.returnId(userName);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return 0;
+    }
+    public void findUser(){
+        int ids=0;
+        System.out.println("insert user");
+        String user = scanner.next();
+        try {
+             ids = accountRepository.returnId(user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (ids > 0){
+            System.out.println("is exists");
+        }
+        else
+            System.out.println("not find");
+
     }
 
 }

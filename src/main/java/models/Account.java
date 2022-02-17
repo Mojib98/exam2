@@ -17,5 +17,10 @@ public class Account extends BaseModel{
         this.passcode = passcode;
     }
 
-
+    @Override
+    public String toString() {
+        return "Account{" +
+                "passcode=" + passcode +
+                "} " + super.toString();
+    }
 }

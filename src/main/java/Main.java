@@ -7,9 +7,10 @@ public class Main {
         AccountService accountService = new AccountService();
       //  accountService.add();
       //  accountService.setId(30);
-        accountService.show();
-        boolean
-         is =accountService.isHere("mojib",2);
-        System.out.println(is);
+    //    accountService.show();
+     //   boolean
+//        System.out.println(is);
+        menu menu = new menu();
+        menu.menuStart();
     }
 }

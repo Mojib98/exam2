@@ -6,12 +6,12 @@ Create table if not exists Account(
     datea date
 );
 CREATE table if not exists tweet(
-    id serial primary key ,
+    id serial  ,
     username varchar(20),
     userid integer references Account(userid),
     datet date,
     tweet varchar(280),
-    idtweet integer unique
+    idtweet integer primary key
 );
 CREATE table if not exists comment(
     id serial,
@@ -19,6 +19,6 @@ CREATE table if not exists comment(
     username varchar(20) ,
     date1 date,
     comment varchar(100),
-    idtweet integer references tweet(id),
+    idtweet integer references tweet(idtweet),
     idcomment integer
 )

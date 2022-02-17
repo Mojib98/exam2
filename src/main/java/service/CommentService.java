@@ -1,8 +1,10 @@
 package service;
 
 import models.Comment;
+import repository.CommentRepository;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -14,6 +16,10 @@ public class CommentService implements Service<Comment> {
     java.util.Date date = new java.util.Date();
     Random random = new Random();
     Scanner scanner = new Scanner(System.in);
+    CommentRepository  commentRepository = new CommentRepository();
+
+    public CommentService() throws SQLException, ClassNotFoundException {
+    }
 
     public void setIdTweet(int idTweet) {
         this.idTweet = idTweet;
@@ -34,10 +40,15 @@ public class CommentService implements Service<Comment> {
         System.out.println("please insert id tweet");
         int tweetId = scanner.nextInt();
         System.out.println("Insert comment");
-        String commnetT=scanner.next();
+        String commnetT=scanner.next().trim();
         long timeMilli = date.getTime();
         Date date1 = new Date(timeMilli);
-        comment = new Comment(idComment,idUser,userName,date1,commnetT,idTweet,idComment);
+        comment = new Comment(idComment,idUser,userName,date1,commnetT,tweetId,idComment);
+        try {
+            commentRepository.add(comment);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
     }
