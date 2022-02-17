@@ -84,14 +84,17 @@ public class menu {
 
 
     private boolean isHere(){
+        try {
         System.out.println("plese insert your user name");
         this.user = scanner.next();
         System.out.println("please insert your passcode");
         int passcode = scanner.nextInt();
-        try {
+
            return accountService.isHere(user,passcode);
         } catch (SQLException e) {
             e.printStackTrace();
+        }catch (Exception e){
+            System.out.println(e.getStackTrace());
         }
         return false;
 
